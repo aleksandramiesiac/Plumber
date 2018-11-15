@@ -28,8 +28,19 @@ waterSound = pygame.mixer.music.load("woda.mp3")
 
 rura = [r_prosta,r_krzywa]
 x = []
-
-random.seed(11)
+#f = open("level.txt","r")
+#ran=f.read()
+#print(f)
+#f.close()
+#ran=0
+#print(f)
+#ran=f.read()
+ran=int(input("Wpisz ulubioną liczbę: "))
+ran= (ran+1)%12+1
+# 1,3,4,6,7,8,9,10,11,12
+if ran ==2 or ran==5 :
+    ran+=1
+random.seed(ran)
 
 
 #inicjacja kolejności kafelek
@@ -75,6 +86,16 @@ start = czcion.render("Start", True,(255,125,255))
 startxy=start.get_rect()
 startxy.x=110
 startxy.y=33
+
+def nastepny(language):
+    screen.blit(cale,(0,0))
+    if language:
+        nast = czcionka.render("Nastęna gra", True, (125,255,255))
+    else:
+        nast = czcionka.render("Next game",True,(125,255,255))
+    nastXY=nast.get_rect()
+    nastXY.center(450,250)
+    screen.blit(nast, nastXY)
 
 #zmiana ustawien:
 def settings(dzwiek,poz,language):
@@ -460,6 +481,15 @@ while True:
                         wypisz("Wygrana!",(350,250),(125,125,125))
                     else:
                         wypisz("Wiin!",(350,250),(125,125,125))
+                    for event in pygame.event.get():
+                        m=pygame.mouse.get_pos()
+                        if event ==MOUSEBUTTONDOWN:
+                            nastepny(language)
+                            if 300<=m[0] and m[0]<=550 and 100<=m[1] and m[1]<=300:
+                                #ran= (ran+1)%12+1
+                                #f.write(str(ran))
+                                #f.close()
+                                sys.exit(0)
                     i+=1
                     if i==40 and dzwiek:
                         pygame.mixer.music.pause()
