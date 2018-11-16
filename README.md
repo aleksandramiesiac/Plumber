@@ -65,9 +65,9 @@ After running the game we can see main settings:
 The game consists of connect the "start" pipe (top left corner of the window) with the "end" pipe (right bottom corner of the window). This can be done by rotating of the pipes which are avaliable on the board. You can do it by clicking on them.
 
 ## Used sources
-Sounds were downloaded from youtube.com,- see more in the [Źródła](Sources)
+Sounds were downloaded from youtube.com,- see more in the [Sources](Źródła)
 
 ## License
-This project and images is licensed under the MIT License - seemore  in the [LICENSE](LICENSE).
+This project and images is licensed under the MIT License - see more  in the [LICENSE](LICENSE).
 
 Have fun!
