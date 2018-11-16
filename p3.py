@@ -28,17 +28,14 @@ waterSound = pygame.mixer.music.load("woda.mp3")
 
 rura = [r_prosta,r_krzywa]
 x = []
-#f = open("level.txt","r")
-#ran=f.read()
-#print(f)
-#f.close()
-#ran=0
-#print(f)
-#ran=f.read()
-ran=int(input("Wpisz ulubioną liczbę: "))
+f = open("level.txt","r")
+ran=int(f.read())
+
+
+f.close()
 ran= (ran+1)%12+1
-# 1,3,4,6,7,8,9,10,11,12
-if ran ==2 or ran==5 :
+# 1,3,4,6,7,9,10,11,12
+if ran ==2 or ran==5 or ran==10:
     ran+=1
 random.seed(ran)
 
@@ -94,7 +91,7 @@ def nastepny(language):
     else:
         nast = czcionka.render("Next game",True,(125,255,255))
     nastXY=nast.get_rect()
-    nastXY.center(450,250)
+    nastXY.center=(450,250)
     screen.blit(nast, nastXY)
 
 #zmiana ustawien:
@@ -355,6 +352,7 @@ para=0
 pocz=1
 dzwiek=True
 language = True
+kon=0
 while True:
     settings(dzwiek,pocz,language)
     for event in pygame.event.get():      
@@ -477,19 +475,24 @@ while True:
                     kwXY.y+=1
                     screen.blit(kwad,kwXY)
                 elif kwXY.y==566:
-                    if language:
+                    if language and kon==0:
                         wypisz("Wygrana!",(350,250),(125,125,125))
                     else:
-                        wypisz("Wiin!",(350,250),(125,125,125))
+                        if kon==0:
+                            wypisz("Wiin!",(350,250),(125,125,125))
                     for event in pygame.event.get():
                         m=pygame.mouse.get_pos()
-                        if event ==MOUSEBUTTONDOWN:
-                            nastepny(language)
-                            if 300<=m[0] and m[0]<=550 and 100<=m[1] and m[1]<=300:
-                                #ran= (ran+1)%12+1
-                                #f.write(str(ran))
-                                #f.close()
+                        if event.type ==MOUSEBUTTONDOWN:
+                            if kon==0:
+                                nastepny(language)
+                                kon+=1
+                            elif 300<=m[0] and m[0]<=750 and 50<=m[1] and m[1]<=400 :
+                                g = open("level.txt","w")
+                                g.write(str(ran))
+                                g.close()
                                 sys.exit(0)
+                            else:
+                                nastepny(language)
                     i+=1
                     if i==40 and dzwiek:
                         pygame.mixer.music.pause()
