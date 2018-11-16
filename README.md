@@ -44,10 +44,11 @@ Python 3., package pygame.
 
 
 ### Download the game
-You can dowload the game directly from githubor by terminal.
+You can dowload the game directly from github or by terminal.
 
 ### Run the game
 In terminal write:
+
 */opt/anaconda/bin/python gra.py*
 
 ## Main settings
@@ -58,7 +59,7 @@ After running the game we can see main settings:
 
 2. Chenge **language**
 
-3. Change **level
+3. Change **level**
 
 ## How to play
 The game consists of connect the "start" pipe (top left corner of the window) with the "end" pipe (right bottom corner of the window). This can be done by rotating of the pipes which are avaliable on the board. You can do it by clicking on them.
