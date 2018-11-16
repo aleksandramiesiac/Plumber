@@ -2,13 +2,14 @@
 Gra polega na połączeniu rury końcowej z rurą początkową.
 
 ## Wymagania systemowe
-Python w wersji 3. pakiet pygame.
+Python w wersji 3.   pakiet pygame.
 
 ### Pobieranie gry
 Grę można pobrać bezpośrednio z githuba oraz z terminala.
 
 ### Uruchamianie gry:
 W konsoli należy wpisać :
+ 
 */opt/anaconda/bin/python gra.py*
 
 ## Ustawienia
@@ -18,7 +19,7 @@ Po uruchomieniu gry wyskoczy nam ekran starowy z ustawieniami.
 
 2. Zmiana **języka**
 
-3. Zmiana **poziomu trudnośi**
+3. Zmiana **poziomu trudności**
 
 ## Jak grać
 Gra polega na połączeniu wypływu wody (lewy górny róg planszy) z odpływem (prawy dolny róg planszy). Należy to zrobić poprzez zmienianie orientacji rur dostępnych na planszy, możemy to zrobić klikając na nie. Pamiętajmy, że nie może być dziur bo woda nie doleci do odpływu.
